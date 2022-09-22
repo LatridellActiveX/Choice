@@ -9,5 +9,7 @@ If I can get three.js to render the map I think it would prove to be a very usef
 I'll be awaiting approval to set this project up as a node.js project with express.js as the backend, however I would have to manually add all the filepaths statically with those frameworks which I do not mind doing. 
 Any other ideas are more than welcome. 
 
+Possibility for the game engine would be pixiejs instead of three.js
+
 
 
