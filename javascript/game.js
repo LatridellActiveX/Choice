@@ -41,6 +41,51 @@ document.onreadystatechange = function () {
             defaultFrame: 1
         });
 
+        //================================
+        //wasd controls, worked on my branch should work on this as well. Be sure to test it out. 
+
+         //S (down)
+         game.on('keyDown', function (keyCode = 83) {
+            if (keyCode === PixelJS.Keys.S) {
+                if (player.canMoveDown) {
+                    player.direction = 8;
+                    player.moveDown();
+                }
+            }
+        });
+
+            //W (up)
+        game.on('keyDown', function (keyCode = 87) {
+            if (keyCode === PixelJS.Keys.W) {
+                if (player.canMoveUp) {
+                    player.direction = 4;
+                    player.moveUp();
+                }
+            }
+        });
+
+        //A (left)
+        game.on('keyDown', function (keyCode = 65) {
+            if (keyCode === PixelJS.Keys.A) {
+                if (player.canMoveLeft) {
+                    player.direction = 1;
+                    player.moveLeft();
+                }
+            }
+        });
+
+        //D (right)
+        game.on('keyDown', function (keyCode = 68) {
+            if (keyCode === PixelJS.Keys.D) {
+                if (player.canMoveRight) {
+                    player.direction = 2;
+                    player.moveRight();
+                }
+            }
+        });
+
+        //================================================================
+
         var itemLayer = game.createLayer('items');
         var coin = itemLayer.createEntity();
         coin.pos = { x: 400, y: 150 };
