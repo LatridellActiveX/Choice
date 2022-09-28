@@ -2,20 +2,11 @@ So this is where I plan on putting our ideas for the design of the game as a wri
 
 We very well can use a third party website or app for notes on the design. I use oneNote, google Docs, etc. 
 
-
-maps is where we will store the tmx and svg files for the map(s) we create. 
-
 We are currently planning on using the map editor on https://www.mapeditor.org/
 
-The question then becomes what do we use to render the map. 
+We are utilizing pixi.js for building this game engine. 
 
-If I can get three.js to render the map I think it would prove to be a very useful platform for the game as it supports things like collision detection and raycasting. As well as lighting, shaders, etc. 
-
-An alternative to using three.js would be pixiejs 
-
-I'll be awaiting approval to set this project up as a node.js project with express.js as the backend, however I would have to manually add all the filepaths statically with express which I do not mind doing. 
-
-Any other ideas are more than welcome. 
+To be honest we haven't made any real progress on the game engine, we need to start incorporating pixi.js into the project as soon as we can. 
 
 -Latridell
 
