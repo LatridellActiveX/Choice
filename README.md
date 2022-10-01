@@ -12,5 +12,11 @@ node --version
 
 You should get version numbers back. You are ready to install the dependencies. 
 
+# Problem You Might Run Into
 
+For those facing the error below,
+[23:35:33] [snowpack] ENOENT: no such file or directory, open '/Users/nova/Files/choice_pixijs/Choice/node_modules/.cache/snowpack/build/eventemitter3@4.0.7/eventemitter3.js'
 
+Solution: 
+    - Delete node_modules folder
+    - Run "npm i"

@@ -1,4 +1,6 @@
 import * as PIXI from "pixi.js";
+import { Map } from "./map";
+import { Character } from "./character";
 
 export class Game {
   private app: PIXI.Application;
@@ -8,6 +10,8 @@ export class Game {
       width: window.innerWidth,
       height: window.innerHeight,
       resizeTo: window,
+      resolution: window.devicePixelRatio || 1,
+      autoDensity: true,
     });
 
     document.body.appendChild(this.app.view);
@@ -18,17 +22,17 @@ export class Game {
   }
 
   private loadAssets(): void {
-    PIXI.Loader.shared.add("assets/gamemap.png").load(this.setup.bind(this));
+    PIXI.Loader.shared
+      .add("assets/map.png")
+      .add("assets/player.png")
+      .load(this.setup.bind(this));
   }
 
   private setup(): void {
-    const gamemap = new PIXI.Sprite(
-      PIXI.Loader.shared.resources["assets/gamemap.png"].texture
-    );
+    const map = new Map(this.app);
+    map.load();
 
-    const gamemapContainer = new PIXI.Container();
-
-    gamemapContainer.addChild(gamemap);
-    this.app.stage.addChild(gamemapContainer);
+    const player = new Character(this.app);
+    player.load();
   }
 }
