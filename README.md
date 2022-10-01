@@ -12,6 +12,11 @@ node --version
 
 You should get version numbers back. You are ready to install the dependencies. 
 
+# How to run the project in development mode
+
+1. run `npm i`
+2. run `npm start`
+
 # Problem You Might Run Into
 
 For those facing the error below,
