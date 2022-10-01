@@ -1,13 +1,16 @@
 # Choice
 Learning pixel art game dev
 
-This is built using react, in order to properly run it make sure you have node and npm installed on your computer (npm comes with node)
+This project utilizes typescript, be sure to familiarize yourself with its syntax. If you need links to any tutorials on it ping @Latridell on discord. 
 
-Make sure you add them to your system path. 
+This project utilizes node&npm, be sure to install node on your computer. 
+To ensure that node&npm are added to your system path run the commands:
 
-Then in your terminal navigate to the react-pixi directory and run "npm install" (without the quotes)
+npm --version
 
-once it succesfully installs all of the dependencies then run "npm start" and it should start a live server 
+node --version
+
+You should get version numbers back. You are ready to install the dependencies. 
 
 
 
