@@ -8,7 +8,7 @@
     "build": "snowpack build"
   },
   "devDependencies": {
-    "snowpack": "^3.8.8",
+    "snowpack": "3.8.6",
     "typescript": "^4.8.4"
   },
   "dependencies": {
