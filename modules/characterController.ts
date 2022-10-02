@@ -18,15 +18,19 @@ export class CharacterController {
     window.addEventListener("keydown", (event) => {
       switch (event.key) {
         case "ArrowUp":
+        case "w":
           this.moveUp();
           break;
         case "ArrowDown":
+        case "s":
           this.moveDown();
           break;
         case "ArrowLeft":
+        case "a":
           this.moveLeft();
           break;
         case "ArrowRight":
+        case "d":
           this.moveRight();
           break;
       }

@@ -14,6 +14,8 @@ export class Game {
   private player: Character | null = null;
   private map: Map | null = null;
 
+  private PLAYER_WALKING_SPEED: number = 0.05;
+
   //The map doesn't size to the full width on edge, however the app itself does here?
   constructor() {
     this.app = new PIXI.Application({
@@ -67,7 +69,10 @@ export class Game {
     this.player = player;
     this.map = map;
 
-    const playerController = new CharacterController(this.player, 0.05);
+    const playerController = new CharacterController(
+      this.player,
+      this.PLAYER_WALKING_SPEED
+    );
 
     playerController.addKeyboardListeners();
 
