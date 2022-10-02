@@ -19,14 +19,4 @@ You should get version numbers back. You are ready to install the dependencies.
 2. run `npm i` - This will install all required dependencies for the project
 3. If all of your dependencies have been installed run `npm start` - This will start the local development server, any changes you make to the code, assuming there's no bugs, should show up in real time on your browser.  
 
-# Problem You Might Run Into
-
-
-*Deprecated issue, this has been fixed. If you still run into this issue ping @latridell*
-For those facing the error below,
-[23:35:33] [snowpack] ENOENT: no such file or directory, open '/Users/nova/Files/choice_pixijs/Choice/node_modules/.cache/snowpack/build/eventemitter3@4.0.7/eventemitter3.js'
-
-Solution: 
-    - Delete node_modules folder
-    - Run "npm i"
 
