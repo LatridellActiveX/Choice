@@ -18,5 +18,11 @@ You should get version numbers back. You are ready to install the dependencies.
 1. Ensure that your terminal is navigated to the root directory of the project, this should be /Choice if you cloned the repo. 
 2. run `npm i` - This will install all required dependencies for the project
 3. If all of your dependencies have been installed run `npm start` - This will start the local development server, any changes you make to the code, assuming there's no bugs, should show up in real time on your browser.  
+4. Once your done running the game and would like to stop the server, click on your terminal and press `cntrl + c`. When prompted enter `y`, this will end the process. 
 
+# Common bugs in VSCode
+
+Often VScode will flag the path of the pixi.js import statements, saying that the path is not found. This doesn't effect your project being able to run 
+*Fix*
+Simply cut the string and paste it back in and the error should go away
 
