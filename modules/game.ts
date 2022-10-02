@@ -3,12 +3,6 @@ import { Map } from "./map";
 import { Character } from "./character";
 import { CharacterController } from "./characterController";
 import { getPlayerAssetPath } from "../utils";
-import { AnimatedSprite } from "pixi.js";
-
-interface GameEvent {
-  keyup: Event;
-  keydown: Event;
-}
 
 /**
  * Contains application setup methods & Loads assets
@@ -19,8 +13,6 @@ export class Game {
   private app: PIXI.Application;
   private player: Character | null = null;
   private map: Map | null = null;
-
-  private PLAYER_VELOCITY = 10;
 
   //The map doesn't size to the full width on edge, however the app itself does here?
   constructor() {
@@ -75,7 +67,7 @@ export class Game {
     this.player = player;
     this.map = map;
 
-    const playerController = new CharacterController(this.player);
+    const playerController = new CharacterController(this.player, 0.05);
 
     playerController.addKeyboardListeners();
 
