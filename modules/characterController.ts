@@ -11,7 +11,9 @@ export class CharacterController {
   }
 
 
-  //Supports arrows and wasd 
+  /**
+   * Event listener method for player movement keydown events
+   */
   public addKeyboardListeners(): void {
     this.character.play();
     window.addEventListener("keydown", (event) => {
@@ -45,11 +47,14 @@ export class CharacterController {
   }
 
 
-  //We need to determine if this is the source of the pause in the character movement. 
+  /**
+   * Moves the character up
+   * 
+   * @See: ./utils/index.ts
+   */ 
   public moveUp(): void {
-    this.character.textures = getCharacterMovementAnimation(
-      getPlayerAssetPath()
-    ).up;
+    //The fuck does this do
+    this.character.textures = getCharacterMovementAnimation(getPlayerAssetPath()).up;
     this.character.y -= this.velocity;
     console.log('moving');
   }
