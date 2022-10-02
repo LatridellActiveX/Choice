@@ -7,4 +7,14 @@ interface ICharacterMovementAnimation {
   right: PIXI.Texture[];
 }
 
-export { ICharacterMovementAnimation };
+interface Velocity {
+  x: number;
+  y: number;
+}
+
+interface Coordinate {
+  x: number;
+  y: number;
+}
+
+export { ICharacterMovementAnimation, Velocity, Coordinate };

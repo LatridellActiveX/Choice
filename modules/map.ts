@@ -8,7 +8,7 @@ export class Map {
     this.app = app;
   }
 
-  public load(): void {
+  public construct(): void {
     const gameMap = new PIXI.Sprite(
       PIXI.Loader.shared.resources["assets/map.png"].texture
     );

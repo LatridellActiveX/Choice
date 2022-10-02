@@ -1,23 +1,21 @@
-import { AnimatedSprite } from "pixi.js";
 import { getCharacterMovementAnimation, getPlayerAssetPath } from "../utils";
+import { Character } from "./character";
+import * as PIXI from "pixi.js";
 
 export class CharacterController {
-  private character: AnimatedSprite;
+  private character: Character;
   private velocity: number;
 
-  constructor(character: AnimatedSprite, velocity: number = 5) {
+  constructor(character: Character, velocity: number = 5) {
     this.character = character;
     this.velocity = velocity;
   }
-
 
   /**
    * Event listener method for player movement keydown events
    */
   public addKeyboardListeners(): void {
-    this.character.play();
     window.addEventListener("keydown", (event) => {
-      console.log(event);
       switch (event.key) {
         case "ArrowUp":
           this.moveUp();
@@ -31,53 +29,64 @@ export class CharacterController {
         case "ArrowRight":
           this.moveRight();
           break;
-        case "w":
-          this.moveUp();
-          break;
-        case "a":
-          this.moveLeft();
-          break;
-        case "s":
-          this.moveDown();
-          break;
-        case "d":
-          this.moveRight();
-          break;
       }
+    });
+
+    window.addEventListener("keyup", (event) => {
+      this.character.setVelocity({
+        x: 0,
+        y: 0,
+      });
     });
   }
 
-
   /**
    * Moves the character up
-   * 
+   *
    * @See: ./utils/index.ts
-   */ 
+   */
   public moveUp(): void {
-    //The fuck does this do
-    this.character.textures = getCharacterMovementAnimation(getPlayerAssetPath()).up;
-    this.character.y -= this.velocity;
-    
+    // changes sprite for character animation
+    this.character.setSpriteTextures(
+      getCharacterMovementAnimation(getPlayerAssetPath()).up
+    );
+
+    this.character.setVelocity({
+      x: 0,
+      y: this.character.getVelocity().y - this.velocity,
+    });
   }
 
   public moveDown(): void {
-    this.character.textures = getCharacterMovementAnimation(
-      getPlayerAssetPath()
-    ).down;
-    this.character.y += this.velocity;
+    this.character.setSpriteTextures(
+      getCharacterMovementAnimation(getPlayerAssetPath()).down
+    );
+
+    this.character.setVelocity({
+      x: 0,
+      y: this.character.getVelocity().y + this.velocity,
+    });
   }
 
   public moveLeft(): void {
-    this.character.textures = getCharacterMovementAnimation(
-      getPlayerAssetPath()
-    ).left;
-    this.character.x -= this.velocity;
+    this.character.setSpriteTextures(
+      getCharacterMovementAnimation(getPlayerAssetPath()).left
+    );
+
+    this.character.setVelocity({
+      x: this.character.getVelocity().x - this.velocity,
+      y: 0,
+    });
   }
 
   public moveRight(): void {
-    this.character.textures = getCharacterMovementAnimation(
-      getPlayerAssetPath()
-    ).right;
-    this.character.x += this.velocity;
+    this.character.setSpriteTextures(
+      getCharacterMovementAnimation(getPlayerAssetPath()).right
+    );
+
+    this.character.setVelocity({
+      x: this.character.getVelocity().x + this.velocity,
+      y: 0,
+    });
   }
 }
