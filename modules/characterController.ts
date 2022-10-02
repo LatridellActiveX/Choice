@@ -10,6 +10,8 @@ export class CharacterController {
     this.velocity = velocity;
   }
 
+
+  //Supports arrows and wasd 
   public addKeyboardListeners(): void {
     this.character.play();
     window.addEventListener("keydown", (event) => {
@@ -26,15 +28,30 @@ export class CharacterController {
         case "ArrowRight":
           this.moveRight();
           break;
+        case "w":
+          this.moveUp();
+          break;
+        case "a":
+          this.moveLeft();
+          break;
+        case "s":
+          this.moveDown();
+          break;
+        case "d":
+          this.moveRight();
+          break;
       }
     });
   }
 
+
+  //We need to determine if this is the source of the pause in the character movement. 
   public moveUp(): void {
     this.character.textures = getCharacterMovementAnimation(
       getPlayerAssetPath()
     ).up;
     this.character.y -= this.velocity;
+    console.log('moving');
   }
 
   public moveDown(): void {
@@ -42,6 +59,7 @@ export class CharacterController {
       getPlayerAssetPath()
     ).down;
     this.character.y += this.velocity;
+    console.log('moving');
   }
 
   public moveLeft(): void {
@@ -49,6 +67,7 @@ export class CharacterController {
       getPlayerAssetPath()
     ).left;
     this.character.x -= this.velocity;
+    console.log('moving');
   }
 
   public moveRight(): void {
@@ -56,5 +75,6 @@ export class CharacterController {
       getPlayerAssetPath()
     ).right;
     this.character.x += this.velocity;
+    console.log('moving');
   }
 }
