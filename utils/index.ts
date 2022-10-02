@@ -2,15 +2,29 @@ import * as PIXI from "pixi.js";
 import { ICharacterMovementAnimation } from "../interface";
 
 const zoomLevel = 2;
+
+/**
+ * 
+ * @returns number
+ */
 const getZoomLevel = () => zoomLevel;
 
+/**
+ * 
+ * @returns string
+ */
 const getPlayerAssetPath = () => "assets/player.png";
+
+/**
+ * 
+ * @returns string
+ */
 const getMapAssetPath = () => "assets/map.png";
 
 /**
  *
- * @param path
- * @returns character movement animation
+ * @param string: path
+ * @returns character movement animation object
  *
  * Note: character sprite sheet is 4x4
  */
