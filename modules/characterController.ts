@@ -17,6 +17,7 @@ export class CharacterController {
   public addKeyboardListeners(): void {
     this.character.play();
     window.addEventListener("keydown", (event) => {
+      console.log(event);
       switch (event.key) {
         case "ArrowUp":
           this.moveUp();
@@ -56,7 +57,7 @@ export class CharacterController {
     //The fuck does this do
     this.character.textures = getCharacterMovementAnimation(getPlayerAssetPath()).up;
     this.character.y -= this.velocity;
-    console.log('moving');
+    
   }
 
   public moveDown(): void {
@@ -64,7 +65,6 @@ export class CharacterController {
       getPlayerAssetPath()
     ).down;
     this.character.y += this.velocity;
-    console.log('moving');
   }
 
   public moveLeft(): void {
@@ -72,7 +72,6 @@ export class CharacterController {
       getPlayerAssetPath()
     ).left;
     this.character.x -= this.velocity;
-    console.log('moving');
   }
 
   public moveRight(): void {
@@ -80,6 +79,5 @@ export class CharacterController {
       getPlayerAssetPath()
     ).right;
     this.character.x += this.velocity;
-    console.log('moving');
   }
 }

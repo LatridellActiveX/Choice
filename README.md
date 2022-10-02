@@ -24,5 +24,5 @@ You should get version numbers back. You are ready to install the dependencies.
 
 Often VScode will flag the path of the pixi.js import statements, saying that the path is not found. This doesn't effect your project being able to run
 <br> <br>
-<strong>Fix:</strong>       Simply cut the path string of the import statement and paste it back in and the error should go away
+<strong>Fix:</strong>       Simply cut the path string of the import statement and paste it back in and the error should go away, UPDATE: this doesnt always work so another fix is to delete one of the `"` in the string and putting it back. 
 
