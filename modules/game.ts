@@ -2,6 +2,11 @@ import * as PIXI from "pixi.js";
 import { Map } from "./map";
 import { Character } from "./character";
 
+/**
+ * Contains application setup methods & Loads assets
+ * 
+ * @See: Pixi.Application
+ */
 export class Game {
   private app: PIXI.Application;
 
@@ -18,11 +23,21 @@ export class Game {
     document.body.appendChild(this.app.view);
   }
 
+  /**
+   * Loads assets
+   * 
+   * @See: loadAssets() method of this class
+   */
   public start(): void {
     this.loadAssets();
   }
 
-  //The map asset and the player asset is loaded through this
+
+  /**
+   * Calls PIXI.Loader and .add's the map and player assets
+   *  
+   * @See: PIXI.Loader of Pixi.js & setup() method of this class
+   */
   private loadAssets(): void {
     PIXI.Loader.shared
       .add("assets/map.png")
@@ -30,7 +45,11 @@ export class Game {
       .load(this.setup.bind(this));
   }
 
-  //why do we call this.app here?
+  /**
+   * Creates new map and character object and loads them
+   *  @See: map.ts & character.ts   
+   *
+   */
   private setup(): void {
     const map = new Map(this.app);
     map.load();
