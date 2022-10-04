@@ -14,7 +14,7 @@ export class Game {
   private player: Character | null = null;
   private map: Map | null = null;
 
-  private PLAYER_WALKING_SPEED: number = 0.05;
+  private PLAYER_WALKING_SPEED: number = 0.5;
 
   //The map doesn't size to the full width on edge, however the app itself does here?
   constructor() {

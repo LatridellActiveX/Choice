@@ -57,7 +57,7 @@ export class CharacterController {
 
     this.character.setVelocity({
       x: 0,
-      y: this.character.getVelocity().y - this.velocity,
+      y: -this.velocity,
     });
   }
 
@@ -68,7 +68,7 @@ export class CharacterController {
 
     this.character.setVelocity({
       x: 0,
-      y: this.character.getVelocity().y + this.velocity,
+      y: this.velocity,
     });
   }
 
@@ -78,7 +78,7 @@ export class CharacterController {
     );
 
     this.character.setVelocity({
-      x: this.character.getVelocity().x - this.velocity,
+      x: -this.velocity,
       y: 0,
     });
   }
@@ -89,7 +89,7 @@ export class CharacterController {
     );
 
     this.character.setVelocity({
-      x: this.character.getVelocity().x + this.velocity,
+      x: this.velocity,
       y: 0,
     });
   }
