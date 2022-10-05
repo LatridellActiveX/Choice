@@ -41,10 +41,18 @@ export class Game {
       .load(this.setup.bind(this));
   }
 
+  /* Quick side notes. 
+  
+  
+  
+  */ 
+
+
+  private tick: number = 0;
   /**
-   * Loads assets
+   * Essentially the game loop
    *
-   * @See: loadAssets() method of this class
+   * @See PIXI.Ticker
    */
   private start(delta: number): void {
     this.player?.setSpriteCoordinate({

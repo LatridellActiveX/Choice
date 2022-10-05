@@ -6,7 +6,7 @@ export class CharacterController {
   private character: Character;
   private velocity: number;
 
-  constructor(character: Character, velocity: number = 5) {
+  constructor(character: Character, velocity: number = 500) {
     this.character = character;
     this.velocity = velocity;
   }
@@ -47,7 +47,7 @@ export class CharacterController {
   /**
    * Moves the character up
    *
-   * @See: ./utils/index.ts
+   * @See character.setVelocity()
    */
   public moveUp(): void {
     // changes sprite for character animation
@@ -57,10 +57,14 @@ export class CharacterController {
 
     this.character.setVelocity({
       x: 0,
-      y: -this.velocity,
+      y: -5,
     });
   }
 
+  /**Moves the character down
+   * 
+   * @See character.setVelocity()
+   */
   public moveDown(): void {
     this.character.setSpriteTextures(
       getCharacterMovementAnimation(getPlayerAssetPath()).down
@@ -68,28 +72,36 @@ export class CharacterController {
 
     this.character.setVelocity({
       x: 0,
-      y: this.velocity,
+      y: 5,
     });
   }
 
+  /**Moves the character left
+   * 
+   * @See character.setVelocity()
+   */
   public moveLeft(): void {
     this.character.setSpriteTextures(
       getCharacterMovementAnimation(getPlayerAssetPath()).left
     );
 
     this.character.setVelocity({
-      x: -this.velocity,
+      x: -5,
       y: 0,
     });
   }
 
+  /**Moves the character right
+   * 
+   * @See character.setVelocity()
+   */
   public moveRight(): void {
     this.character.setSpriteTextures(
       getCharacterMovementAnimation(getPlayerAssetPath()).right
     );
 
     this.character.setVelocity({
-      x: this.velocity,
+      x: 5,
       y: 0,
     });
   }

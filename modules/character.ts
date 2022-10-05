@@ -7,7 +7,11 @@ import {
 } from "../utils";
 import { CharacterController } from "./characterController";
 
-//You can put export before the class template
+/** Represents a character
+ * 
+ * 
+ * 
+ */
 export class Character {
   private app: PIXI.Application;
   private sprite: PIXI.AnimatedSprite | undefined;
@@ -47,24 +51,45 @@ export class Character {
     this.sprite = character;
   }
 
-  //returns the sprite
+  /** Returns the sprite
+   * 
+   * @returns sprite as PIXI.AnimatedSprite
+   */
   public getSprite(): PIXI.AnimatedSprite {
     return this.sprite as PIXI.AnimatedSprite;
   }
 
+
+  /**Setter for the sprite coordinates
+   * 
+   * @param coordinate (Coordinate Object)
+   */
   public setSpriteCoordinate(coordinate: Coordinate) {
     this.sprite!.x = coordinate.x;
     this.sprite!.y = coordinate.y;
   }
 
+  /**Setter for the character textures
+   * 
+   * @param textures <PIXI.Texture>[] 
+   */
   public setSpriteTextures(textures: PIXI.Texture[]): void {
     this.sprite!.textures = textures;
   }
+
+  /** Getter for character velocity
+   * 
+   * @returns velocity (Object)
+   */
 
   public getVelocity(): Velocity {
     return this.velocity;
   }
 
+  /** Setter for the character velocity
+   * 
+   * @param velocity (Object)
+   */
   public setVelocity(velocity: Velocity): void {
     this.velocity = velocity;
   }
