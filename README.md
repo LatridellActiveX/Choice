@@ -13,6 +13,11 @@ To ensure that node & npm are added to your system path run the commands:
 
 You should get version numbers back. You are ready to install the dependencies. 
 
+#cloning the repo
+
+1. Ensure that you have git installed on your computer. If not see [This Website](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2. Navigate to the directory you would like to install the repository in and use the command `git clone <url>`, with `url` being the url of the repo. You can access the url of the repo via the code tab in the repo and clicking the green code button on the right. 
+
 # How to run the project in development mode
 
 1. Ensure that your terminal is navigated to the root directory of the project, this should be /Choice if you cloned the repo. 
