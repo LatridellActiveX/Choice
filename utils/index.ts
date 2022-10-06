@@ -1,21 +1,24 @@
 import * as PIXI from "pixi.js";
 import { ICharacterMovementAnimation } from "../interface";
 
-const zoomLevel = 2;
+/**Zoom level, affects scale of map and player 
+ * 
+ */
+const zoomLevel = 3;
 
-/**
+/** Getter for zoom level
  * 
  * @returns number
  */
 const getZoomLevel = () => zoomLevel;
 
-/**
+/** Getter for player asset path
  * 
  * @returns string
  */
 const getPlayerAssetPath = () => "assets/player.png";
 
-/**
+/** Getter for map asset path
  * 
  * @returns string
  */

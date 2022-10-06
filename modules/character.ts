@@ -25,7 +25,10 @@ export class Character {
     this.app = app;
   }
 
-  //loads the character
+  /** Sets up the dimensions of the character. Creates a character container, and adds it to the stage. 
+   * 
+   * @param assetPath The path for the character animation
+   */
   public construct(assetPath: string): void {
     //animated sprite object in pixi.
     const character = new PIXI.AnimatedSprite(
