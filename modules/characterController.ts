@@ -28,7 +28,6 @@ export class CharacterController {
       switch (event.key) {
         case "ArrowUp":
         case "w":
-          console.log('up has been pressed');
           this.leftActive = false;
           this.downActive = false;
           this.rightActive = false;
@@ -38,7 +37,6 @@ export class CharacterController {
           break;
         case "ArrowDown":
         case "s":
-          console.log('down has been pressed');
           this.upActive = false;
           this.leftActive = false;
           this.rightActive = false;
@@ -48,7 +46,6 @@ export class CharacterController {
           break;
         case "ArrowLeft":
         case "a":
-          console.log('left has been pressed');
           this.upActive = false;
           this.downActive = false;
           this.rightActive = false;
@@ -58,7 +55,6 @@ export class CharacterController {
           break;
         case "ArrowRight":
         case "d":
-          console.log('right has been pressed');
           this.upActive = false;
           this.downActive = false;
           this.leftActive = false;
@@ -76,22 +72,18 @@ export class CharacterController {
       switch (event.key) {
         case "ArrowUp":
         case "w":
-          console.log('up has been released');
           this.upActive = false;
           break;
         case "ArrowDown":
         case "s":
-          console.log('down has been released');
           this.downActive = false;
           break;
         case "ArrowLeft":
         case "a":
-          console.log('left has been released');
           this.leftActive = false;
           break;
         case "ArrowRight":
         case "d":
-          console.log('right has been released');
           this.rightActive = false;
           break;
       }
