@@ -15,7 +15,7 @@ import { CharacterController } from "./characterController";
 export class Character {
   private app: PIXI.Application;
   private sprite: PIXI.AnimatedSprite | undefined;
-
+  public moving:boolean = false;
   private velocity: Velocity = {
     x: 0,
     y: 0,
@@ -73,11 +73,18 @@ export class Character {
   }
 
   /**Setter for the character textures
-   * 
+   * @NOTE Not working at the moment, needs a fix
    * @param textures <PIXI.Texture>[] 
    */
+  
   public setSpriteTextures(textures: PIXI.Texture[]): void {
-    this.sprite!.textures = textures;
+    try{
+      this.sprite!.textures = textures;
+      this.sprite!.animationSpeed = 0.1;
+    }catch(e){
+      console.log(`Fucked up because ${e}`)
+    }
+    
   }
 
   /** Getter for character velocity

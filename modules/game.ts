@@ -56,6 +56,12 @@ export class Game {
       x: this.player.getSprite().x + this.player.getVelocity().x,
       y: this.player.getSprite().y + this.player.getVelocity().y,
     });
+    if(!this.player?.moving){
+      this.player!.getSprite().gotoAndStop(0);
+    }else if(this.player?.moving){
+      this.player!.getSprite().play();
+    }
+    //console.log(this.player?.getSprite().playing);
   }
 
   /**

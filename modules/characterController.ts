@@ -15,11 +15,15 @@ export class CharacterController {
     this.velocity = velocity;
   }
 
+  //it says that isMoving is never read but I reference it all over the code, not sure why this bug is here. 
   private isMoving: boolean = false;
   private rightActive: boolean = false;
   private leftActive: boolean = false;
   private upActive: boolean = false;
   private downActive: boolean = false;
+  private directionChange = false;
+  private keyDownCode: number = 0;
+  //Key codes that I have come up with: 1-right, 2-left, 3-up, 4-down
   /**
    * Event listener method for player movement keydown events
    */
@@ -28,39 +32,59 @@ export class CharacterController {
       switch (event.key) {
         case "ArrowUp":
         case "w":
+          if(this.keyDownCode != 3){
+            this.keyDownCode = 3;
+            this.character.setSpriteTextures(
+              getCharacterMovementAnimation(getPlayerAssetPath()).up
+            );
+          }
           this.leftActive = false;
           this.downActive = false;
           this.rightActive = false;
           this.isMoving = true;
-          this.upActive = true;
-          //this.moveUp();
+          this.upActive = true;  
           break;
         case "ArrowDown":
         case "s":
+          if(this.keyDownCode != 4){
+            this.keyDownCode = 4;
+            this.character.setSpriteTextures(
+              getCharacterMovementAnimation(getPlayerAssetPath()).down
+            );
+          }
           this.upActive = false;
           this.leftActive = false;
           this.rightActive = false;
           this.isMoving = true;
-          this.downActive = true;
-          //this.moveDown();
+          this.downActive = true;  
           break;
         case "ArrowLeft":
         case "a":
+          if(this.keyDownCode != 2){
+            this.keyDownCode = 2;
+            this.character.setSpriteTextures(
+              getCharacterMovementAnimation(getPlayerAssetPath()).left
+            );
+          }
           this.upActive = false;
           this.downActive = false;
           this.rightActive = false;
           this.isMoving = true;
           this.leftActive = true;
-          //this.moveLeft();
           break;
         case "ArrowRight":
         case "d":
+          if(this.keyDownCode != 1){
+            this.keyDownCode = 1;
+            this.character.setSpriteTextures(
+              getCharacterMovementAnimation(getPlayerAssetPath()).right
+            );
+          }
           this.upActive = false;
           this.downActive = false;
           this.leftActive = false;
           this.isMoving = true;
           this.rightActive = true;
-          //this.moveRight();
           break;
       }
     });
@@ -92,20 +116,28 @@ export class CharacterController {
   }
 
   public moveCheck():void{
+
     if(!this.rightActive && !this.leftActive && !this.upActive && !this.downActive){
         this.isMoving = false;
         this.stopMoving();
       }else {
         if(this.rightActive){
+          //gets called at 60fps
           this.isMoving = true;
           this.moveRight();
         }else if(this.leftActive){
+          //gets called at 60fps
+          console.log("leftActive");
           this.isMoving = true;
           this.moveLeft();
         }else if(this.upActive){
+          console.log("upActive");
+          //gets called at 60fps
           this.isMoving = true;
           this.moveUp();
         }else if(this.downActive){
+          //gets called at 60fps
+          console.log("downActive");
           this.isMoving = true;
           this.moveDown();
         }
@@ -118,13 +150,7 @@ export class CharacterController {
    * @See character.setVelocity()
    */
   public moveUp(): void {
-    // changes sprite for character animation
-    this.character.setSpriteTextures(
-      getCharacterMovementAnimation(getPlayerAssetPath()).up
-    );
-
-
-    //This ties in with the character class velocity, which is then accessed by the game loop. So all in all it ties back to the event listeners which have a delay. 
+    this.character.moving = true;
     this.character.setVelocity({
       x: 0,
       y: -5,
@@ -136,10 +162,7 @@ export class CharacterController {
    * @See character.setVelocity()
    */
   public moveDown(): void {
-    this.character.setSpriteTextures(
-      getCharacterMovementAnimation(getPlayerAssetPath()).down
-    );
-
+    this.character.moving = true;
     this.character.setVelocity({
       x: 0,
       y: 5,
@@ -151,10 +174,7 @@ export class CharacterController {
    * @See character.setVelocity()
    */
   public moveLeft(): void {
-    this.character.setSpriteTextures(
-      getCharacterMovementAnimation(getPlayerAssetPath()).left
-    );
-
+    this.character.moving = true;
     this.character.setVelocity({
       x: -5,
       y: 0,
@@ -166,10 +186,7 @@ export class CharacterController {
    * @See character.setVelocity()
    */
   public moveRight(): void {
-    this.character.setSpriteTextures(
-      getCharacterMovementAnimation(getPlayerAssetPath()).right
-    );
-
+    this.character.moving = true;
     this.character.setVelocity({
       x: 5,
       y: 0,
@@ -177,6 +194,7 @@ export class CharacterController {
   }
 
   public stopMoving():void{
+    this.character.moving = false;
     this.character.setVelocity({
       x: 0,
       y: 0
