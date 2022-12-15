@@ -3,6 +3,7 @@ import { Map } from "./map";
 import { Character } from "./character";
 import { CharacterController } from "./characterController";
 import { getPlayerAssetPath } from "../utils";
+import { TemporaryDisplayObject } from "pixi.js";
 
 /**
  * Contains application setup methods & Loads assets
@@ -13,6 +14,7 @@ export class Game {
   private app: PIXI.Application;
   private player: Character | null = null;
   private map: Map | null = null;
+  private controller: CharacterController | null = null;
 
   private PLAYER_WALKING_SPEED: number = 0.5;
 
@@ -30,8 +32,8 @@ export class Game {
   }
 
   /**
-   * run the game
-   *
+   * run the game and "binds" the setup() function in this class to the loader. 
+   * Contains a callback which is the setup() function in this class that is called when the initial loading is complete. 
    *
    */
   public play(): void {
@@ -41,20 +43,31 @@ export class Game {
       .load(this.setup.bind(this));
   }
 
+  
   /**
-   * Loads assets
+   * Essentially the game loop
+   * @Speed ~60 Iterations / Second
    *
-   * @See: loadAssets() method of this class
+   * @See PIXI.Ticker
    */
   private start(delta: number): void {
+    this.controller?.moveCheck();
     this.player?.setSpriteCoordinate({
       x: this.player.getSprite().x + this.player.getVelocity().x,
       y: this.player.getSprite().y + this.player.getVelocity().y,
     });
+    if(!this.player?.moving){
+      this.player!.getSprite().gotoAndStop(0);
+    }else if(this.player?.moving){
+      this.player!.getSprite().play();
+    }
+    //console.log(this.player?.getSprite().playing);
   }
 
   /**
-   * Creates new map and character object and loads them
+   * Creates new map and character object and loads them. 
+   * Also creates a new character controller. 
+   *  Bound to the loader
    *  @See: map.ts & character.ts
    *
    */
@@ -73,6 +86,7 @@ export class Game {
       this.player,
       this.PLAYER_WALKING_SPEED
     );
+    this.controller = playerController;
 
     playerController.addKeyboardListeners();
 
