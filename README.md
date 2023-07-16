@@ -1,5 +1,7 @@
 # Choice
-Learning pixel art game dev
+Learning pixel art game dev 
+
+#NOTE: This Project is no longer under active development. 
 
 This project utilizes typescript, be sure to familiarize yourself with its syntax. If you need links to any tutorials on it ping `@Latridell` on discord. 
 
